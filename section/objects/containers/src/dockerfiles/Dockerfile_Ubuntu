@@ -1,0 +1,7 @@
+FROM ubuntu
+MAINTAINER Kamil Kubicki <contact@kamil-kubicki.com>  
+RUN apt-get update && apt-get install -y iputils-ping
+RUN useradd -ms /bin/bash kubik
+USER kubik
+ENTRYPOINT ["ping","-c","3"]
+CMD ["localhost"]

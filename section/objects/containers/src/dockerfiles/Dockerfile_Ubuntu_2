@@ -1,0 +1,6 @@
+FROM ubuntu
+MAINTAINER Kamil Kubicki <contact@kamil-kubicki.com>  
+RUN apt-get update
+RUN useradd -ms /bin/bash kubik
+USER kubik
+CMD ["sleep", "10"]

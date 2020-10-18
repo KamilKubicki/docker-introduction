@@ -31,5 +31,4 @@ Quick introduction to Docker, its main features and commands grouped by sections
 - [Medium - Docker — Beginner’s Guide](https://medium.com/codingthesmartway-com-blog/docker-beginners-guide-part-1-images-containers-6f3507fffc98 "Docker — Beginner’s Guide")
 - [freecodecamp.org - The Docker Handbook](https://www.freecodecamp.org/news/the-docker-handbook/#introduction-to-containerization-and-docker "The Docker Handbook")
 - [Le Blog Amazon Web Services](https://aws.amazon.com/fr/blogs/france/demystifier-entrypoint-et-cmd-dans-docker/ "Démystifier ENTRYPOINT et CMD dans Docker")
-- [freeCodeCamp.org](https://www.youtube.com/watch?v=fqMOX6JJhG "Docker Tutorial for Beginners - A Full DevOps Course on How to Run Applications in Containers")
 - [edureka!](https://www.youtube.com/watch?v=RSIstPUiEjY "Docker Full Course - Learn Docker in 5 Hours | Docker Tutorial For Beginners | Edureka")

@@ -14,8 +14,8 @@ Quick introduction to Docker, its main features and commands grouped by sections
     - [Containers](section/objects/containers/README.md)
     - Networks - coming soon
     - Volumes - coming soon
-- Docker compose - coming soon
-- Symfony & React meet Docker - coming soon
+- [Docker-compose](section/docker_compose/README.md)
+- [Symfony & React meet Docker](section/symfony_react_docker/README.md)
 - CI/CD pipeline with Docker - coming soon
 
 <div align="center">

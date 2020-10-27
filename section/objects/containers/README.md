@@ -13,7 +13,7 @@
 
 A container is a runnable instance of an image. You can manage containers (create/deleted or start/stop) using command line or Docker Desktop and create many containers based on same image. Those instances are isolated from each other but share and run on same host kernel making them lighweight, limiting the resources but also causing potential security risks - Docker by default runs all processes as ROOT user (one of the reasons why production containers should always be run under non-privileged user context). Running containers are reachable from the host system. By default containers can communicate between each other trough same host bridge network and can access to external networks using the host machine’s network connection (more about networking in 'Networks' section). 
 
-Containers are sateless and do not have data persistence - once deleted, the data that is not stored uner shared volume(s) will be lost.
+Containers are sateless and do not have data persistence - once deleted, the data that is not stored under shared volume(s) will be lost.
 
 ### Docker run
 

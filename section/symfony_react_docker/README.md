@@ -119,6 +119,7 @@ services:
 +      - ./.docker/mysql/config/mysql-docker.cnf:/etc/mysql/conf.d/mysql-docker.cnf:ro
 +      - ./.docker/mysql/config/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
 +      - ./.docker/mysql/log/:/var/log/mysql:rw
++      - ./.docker/mysql/data/:/var/lib/mysql:rw
 +    restart: always
 +    environment:
 +      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -214,7 +215,7 @@ Voila!
 
 Next step will consist of placing an apache server in the stack - we will use a Debian Linux distribution in version 10 to make it happen:
 
-```
+```diff
 services:
     ...
 +  apache:
@@ -263,7 +264,7 @@ We wil need to setup PHP service first and run it together.
 PHP service will be built on php-7.4-fpm-alpine. This image ships with the default php.ini-development and php.ini-production configuration files.
 Att: This tutorial defines development stack, and it is strongly advised to define the production config if you wish to run it in production environment.
 
-```
+```diff
 services:
     ...
 +  php:
@@ -281,8 +282,7 @@ services:
 +      - mysql
 ```
 
-> While mounting process an *.sh file is run, the context 
-> and dockerfile should be defined in explicit way
+> Dockerfile can be pointed in explicit way
 > build:
 >    context: .
 >    dockerfile: ./.docker/php/Dockerfile
@@ -330,7 +330,7 @@ All our services defined till now are fully operational.
 
 Trying to separate each level of our stack, NodeJs v15 is installed as new service - for now there is no js dependency defined or requirement in project:
 
-```
+```diff
 services:
     ...
 +  nodejs:

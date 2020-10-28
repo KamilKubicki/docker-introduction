@@ -4,7 +4,11 @@ FROM node:${NODEJS_VERSION}-alpine
 
 RUN yarn install
 
+WORKDIR /var/www/html
+
+COPY .docker/nodejs/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod 775 /usr/local/bin/docker-entrypoint.sh
+
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-# Skipped as used with encore installation under SF5
-# CMD ["yarn", "run", "encore", "dev", "--watch"]
+
 CMD ["yarn"]

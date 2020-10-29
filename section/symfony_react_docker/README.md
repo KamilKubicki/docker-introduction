@@ -337,13 +337,22 @@ services:
 +    build:
 +      context: .
 +      dockerfile: ./.docker/nodejs/Dockerfile
++    environment:
++      PHP_HOST: php
++      PHP_PORT: 9000
 +    volumes:
 +      - .:/var/www/html:rw
 +    depends_on:
 +      - php
 ```
  
-> docker-compose up -d
+> Environment settings will help NodeJS container to wait until PHP service is ready:
+>   environment:
+>      PHP_HOST: php
+>      PHP_PORT: 9000
+
+<cite>Source: [Dockerfile](src/nodejs/Dockerfile)</cite>
+<cite>Source: [docker-entrypoint.sh](src/nodejs/docker-entrypoint.sh)</cite>
 
 ![docker-compose-mysql-apache-php-dashboard](src/docker-compose-mysql-apache-php-dashboard.png)
 
@@ -368,6 +377,20 @@ Please visit: http://127.0.0.1:8080/
 
 ![symfony-main](src/symfony-main.png)
 
+Troubleshooting: 
+
+It can happen that something get wrong while running `docker-compose` command - yeah, this is pure life.
+If at any point you faced a problem, try to:
+
+ - stop containers
+ - delete manually `/node_modules`, `/vendor` folders
+ - optionally remove images 
+ - retry `docker-compose up -d`
+
+Att: .dockerignore file placed in the root directory of the context is verified before the Docker CLI sends the context to the Docker daemon,
+and prevent sending large/sensitive files/directories to the daemon and potentially adding them to images using ADD or COPY commands.
+<cite>Source: [.dockerignore](src/.dockerignore)</cite>
+
 ***Progress:***
 - [x] Create Symfony 5 project
 - [x] Prepare docker-compose.yml
@@ -390,3 +413,5 @@ Builds, (re)creates, starts, and attaches to containers for a service.
 
 - docker-compose exec php bash
 - docker-compose exec php composer install
+- docker-compose exec php php bin/console cache:clear
+- docker-compose run  nodejs yarn encore dev --watch
